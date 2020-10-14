@@ -22,7 +22,7 @@ services:
       - "logging=true"
     restart: "no"
     logging: *default-logging
-  db:
+  virtuoso:
     image: tenforce/virtuoso:1.3.2-virtuoso7.2.2
     environment:
       SPARQL_UPDATE: "true"
@@ -35,15 +35,32 @@ services:
     logging: *default-logging
   resource:
     image: semtech/mu-cl-resources:1.18.0
-    links:
-      - db:database
     volumes:
       - ./config/resources:/config
     logging: *default-logging
   migrations:
     image: semtech/mu-migrations-service
     links:
-      - db:database
+      - virtuoso:database
     volumes:
       - ./config/migrations:/data/migrations
     logging: *default-logging
+  deliver-email-service:
+    image: delivery-email-service-test_1
+    ports:
+      - 8888:80
+      - 9229:9229
+    environment:
+      NODE_ENV: "development"
+    labels:
+      - "logging=true"
+    restart: always
+    logging: *default-logging
+    volumes:
+      - /media/achraf/Main/Work/RedPencil/Services/deliver-email-service/:/app/
+  database:
+    image: semtech/mu-authorization:0.6.0-beta.5
+    environment:
+      MU_SPARQL_ENDPOINT: "http://virtuoso:8890/sparql"
+    volumes:
+      - ./config/authorization:/config

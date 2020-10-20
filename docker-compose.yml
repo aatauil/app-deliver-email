@@ -46,12 +46,17 @@ services:
       - ./config/migrations:/data/migrations
     logging: *default-logging
   deliver-email-service:
-    image: delivery-email-service-test_1
+    image: deliver-email-service-test_1
     ports:
       - 8888:80
       - 9229:9229
     environment:
       NODE_ENV: "development"
+      SMTP_OR_REST: "smtp"
+      WELL_KNOWN_SERVICE_OR_SERVER: "Gmail"
+      EMAIL_ADDRESS: "redpencil"
+      EMAIL_PASSWORD: "L#9kFVouNWoUBx"
+      FROM_NAME: "TEST"
     labels:
       - "logging=true"
     restart: always

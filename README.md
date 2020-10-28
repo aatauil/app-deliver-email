@@ -1,24 +1,40 @@
-# mu-project
+# App-deliver-email
 
-Bootstrap a mu.semte.ch microservices environment in three easy steps.
+Backend app to test the [deliver-email-service](https://github.com/redpencilio/deliver-email-service).
 
 ## How to
 
-Setting up your environment is done in three easy steps:  first you configure the running microservices and their names in `docker-compose.yml`, then you configure how requests are dispatched in `config/dispatcher.ex`, and lastly you start everything.
+First clone this repo then open your docker-compose.yml file. By default the deliver-email-service is set to "development" and gives you the option of using the chrome debugger. 
+It is also set to "smtp".
 
-### Hooking things up with docker-compose
+### SMTP
+> If you want to use a temporary testing mailbox then skip this part and go to "TEST"
 
-Alter the `docker-compose.yml` file so it contains all microservices you need.  The example content should be clear, but you can find more information in the [Docker Compose documentation](https://docs.docker.com/compose/).  Don't remove the `identifier` and `db` container, they are respectively the entry-point and the database of your application.  Don't forget to link the necessary microservices to the dispatcher and the database to the microservices.
+If you want to use "smtp" as your protocol and receive the emails to a specific mailbox then you will have to change the following environment variables
+WELL_KNOWN_SERVICE_OR_SERVER, EMAIL_ADDRESS, EMAIL_PASSWORD & FROM_NAME(optional).
+<br>
+Do not forget to assign the path in volumes to where the deliver-email-service is cloned so you can develop with live-reload
 
-### Configure the dispatcher
+```yaml
+    volumes:
+      - /path/to/local/cloned/deliver-email-service/folder/:/app/
+```
+As soon as you have done that you can simple start the app.
 
-Next, alter the file `config/dispatcher.ex` based on the example that is there by default.  Dispatch requests to the necessary microservices based on the names you used for the microservice.
+```bash
+docker-compose up
+```
 
-### Boot up the system
+Inspect the logs and wait for the migration to happen. After that you should be good to go.
 
-Boot your microservices-enabled system using docker-compose.
+### TEST
 
-    cd /path/to/mu-project
-    docker-compose up
+For use with a temporary mailbox you can simplky change the EMAIL_PROTOCOL env to "test". This will go through the same process as "smtp" expect that for every email you will receive a preview url where you can find more details about the mail.
 
-You can shut down using `docker-compose stop` and remove everything using `docker-compose rm`.
+```yaml
+    environment:
+      NODE_ENV: "development"
+      EMAIL_PROTOCOL: "test"
+```
+
+**More Detailed information can be found on the [deliver-email-service repo](https://github.com/redpencilio/deliver-email-service)**

@@ -12,16 +12,18 @@ services:
     image: semtech/mu-identifier:1.7.0
     labels:
       - "logging=true"
+    ports:
+      - 80:80
     restart: "no"
     logging: *default-logging
   dispatcher:
     image: semtech/mu-dispatcher:1.1.2
     volumes:
       - ./config/dispatcher:/config
-    labels:
-      - "logging=true"
     restart: "no"
     logging: *default-logging
+    labels:
+      - "logging=true"
   virtuoso:
     image: tenforce/virtuoso:1.3.2-virtuoso7.2.2
     environment:
@@ -38,34 +40,41 @@ services:
     volumes:
       - ./config/resources:/config
     logging: *default-logging
+    labels:
+      - "logging=true"
   migrations:
     image: semtech/mu-migrations-service
     links:
       - virtuoso:database
     volumes:
       - ./config/migrations:/data/migrations
+
     logging: *default-logging
   deliver-email-service:
-    image: deliver-email-service-test_1
+    image: aatauil/deliver-email-service:1.0.0
     ports:
       - 8888:80
       - 9229:9229
     environment:
+      SECURE_CONNECTION: "true"
       NODE_ENV: "development"
-      SMTP_OR_REST: "smtp"
-      WELL_KNOWN_SERVICE_OR_SERVER: "Gmail"
-      EMAIL_ADDRESS: "redpencil"
-      EMAIL_PASSWORD: "L#9kFVouNWoUBx"
-      FROM_NAME: "TEST"
+      EMAIL_PROTOCOL: "smtp"
+      WELL_KNOWN_SERVICE_OR_SERVER: "myservice"
+      EMAIL_ADDRESS: "mymail@myservice.com"
+      EMAIL_PASSWORD: "myemailpassword"
+      FROM_NAME: "myname"
     labels:
       - "logging=true"
     restart: always
-    logging: *default-logging
     volumes:
-      - /media/achraf/Main/Work/RedPencil/Services/deliver-email-service/:/app/
+      - /path/to/local/cloned/deliver-email-service/folder/:/app/
+    logging: *default-logging
   database:
     image: semtech/mu-authorization:0.6.0-beta.5
     environment:
       MU_SPARQL_ENDPOINT: "http://virtuoso:8890/sparql"
+    labels:
+      - "logging=true"
     volumes:
       - ./config/authorization:/config
+    logging: *default-logging

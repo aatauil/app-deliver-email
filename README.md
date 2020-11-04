@@ -19,17 +19,16 @@ PREFIX nmo: <http://www.semanticdesktop.org/ontologies/2007/03/22/nmo#>
 PREFIX fni: <http://www.semanticdesktop.org/ontologies/2007/03/22/fni#>
 PREFIX nie: <http://www.semanticdesktop.org/ontologies/2007/03/22/nie#>
 
-   SELECT ?mailfolders
-    WHERE {
-      GRAPH <http://mu.semte.ch/graphs/system/email> {
-        <http://data.lblod.info/id/mailboxes/1> fni:hasPart ?mailfolders.
-
-      }
+SELECT ?mailfolders
+  WHERE {
+    GRAPH <http://mu.semte.ch/graphs/system/email> {
+      <http://data.lblod.info/id/mailboxes/1> fni:hasPart ?mailfolders.
     }
+  }
     
 ```
 
-If the mailfolders row is empty it means that it has not finished yet, if you see 6 folder uri's then you are good to go.
+If the mailfolders column is empty it means that it has not finished yet, if you see 6 folder uri's then you are good to go.
 
 ### SMTP
 > If you want to use a temporary testing mailbox then skip this part and go to "TEST"

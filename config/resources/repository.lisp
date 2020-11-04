@@ -14,6 +14,12 @@
 
 (add-prefix "schema" "http://schema.org")
 
+;; PREFIXES for FILE
+(add-prefix "nfo" "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#")
+(add-prefix "nie" "http://www.semanticdesktop.org/ontologies/2007/01/19/nie#")
+(add-prefix "dct" "http://purl.org/dc/terms/")
+(add-prefix "dbpedia" "http://dbpedia.org/ontology/")
+
 
 ;;;;;
 ;; The following is the commented out version of those used in the

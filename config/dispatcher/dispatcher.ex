@@ -36,6 +36,10 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://file/files/"
   end
 
+  post "/email-delivery/*path" do
+    Proxy.forward conn, path, "http://deliver-email-service/email-delivery/"
+  end
+
   match _ do
     send_resp( conn, 404, "Route not found.  See config/dispatcher.ex" )
   end

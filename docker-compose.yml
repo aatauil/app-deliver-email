@@ -51,7 +51,7 @@ services:
 
     logging: *default-logging
   deliver-email-service:
-    image: aatauil/deliver-email-service:1.0.0
+    image: aatauil/deliver-email-service:1.1.0
     ports:
       - 8888:80
       - 9229:9229

@@ -34,7 +34,7 @@ SELECT ?mailfolders
 > If you want to use a temporary testing mailbox where you will receive the emails, then skip this part and go to "TEST"
 
 If you want to use "smtp" as your protocol and send/receive the emails from a specific mailbox then you will have to change the following environment variables <br>
-WELL_KNOWN_SERVICE_OR_SERVER, <br> EMAIL_ADDRESS, <br> EMAIL_PASSWORD, <br>FROM_NAME(optional).
+WELL_KNOWN_SERVICE, <br> EMAIL_ADDRESS, <br> EMAIL_PASSWORD, <br>FROM_NAME(optional).
 <br>
 Do not forget to assign the path in volumes to where the deliver-email-service is cloned so you can develop with live-reload
 

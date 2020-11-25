@@ -31,7 +31,7 @@ defmodule Dispatcher do
   match "/email-headers/*path" do
     Proxy.forward conn, path, "http://resource/email-headers/"
   end
-  
+
   match "/files/*path" do
     Proxy.forward conn, path, "http://file/files/"
   end

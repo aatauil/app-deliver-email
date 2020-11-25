@@ -33,7 +33,7 @@
                 (:content-mime-type :string ,(s-prefix "nmo:contentMimeType"))
                 (:received-date :datetime ,(s-prefix "nmo:receivedDate"))
                 (:sent-date :datetime ,(s-prefix "nmo:sentDate"))
-                (:last-sending-attempt :boolean ,(s-prefix "ext:lastSendingAttempt")))
+                (:number-of-retries :number ,(s-prefix "task:numberOfRetries")))
   :has-one `((email :via ,(s-prefix "nmo:inReplyTo")
                     :as "in-reply-to")
              (folder :via ,(s-prefix "nmo:isPartOf")

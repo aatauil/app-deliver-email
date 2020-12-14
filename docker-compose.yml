@@ -51,7 +51,7 @@ services:
 
     logging: *default-logging
   deliver-email-service:
-    image: redpencil/deliver-email-service:1.1.0
+    image: redpencil/deliver-email-service:0.1.1
     ports:
       - 8888:80
       - 9229:9229

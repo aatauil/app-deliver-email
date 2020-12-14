@@ -22,7 +22,7 @@ PREFIX nie: <http://www.semanticdesktop.org/ontologies/2007/03/22/nie#>
 SELECT ?mailfolders
   WHERE {
     GRAPH <http://mu.semte.ch/graphs/system/email> {
-      <http://data.lblod.info/id/mailboxes/1> fni:hasPart ?mailfolders.
+      <http://data.lblod.info/id/mailboxes/1> nie:hasPart ?mailfolders.
     }
   }
     

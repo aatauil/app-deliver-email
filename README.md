@@ -52,12 +52,12 @@ Inspect the logs and wait for the migrations to happen. After that you should be
 
 ### TEST
 
-For use with a temporary mailbox you can simply change the EMAIL_PROTOCOL env to "test". This will go through the same process as "smtp" expect that for every email, you will receive a preview url where you can find more details about the email.
+For use with a temporary mailbox you can simply change the WELL_KNOWN_SERVICE env to "test". This will go through the same process as any other smtp service expect that for every email, you will receive a preview url where you can find more details about the email.
 
 ```yaml
     environment:
       NODE_ENV: "development"
-      EMAIL_PROTOCOL: "test"
+      WELL_KNOWN_SERVICE: "test"
 ```
 
 **More Detailed information can be found on the [deliver-email-service repo](https://github.com/redpencilio/deliver-email-service)**

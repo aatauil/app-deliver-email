@@ -59,7 +59,7 @@ services:
       SECURE_CONNECTION: "true"
       NODE_ENV: "development"
       EMAIL_PROTOCOL: "smtp"
-      WELL_KNOWN_SERVICE: "gmail"
+      WELL_KNOWN_SERVICE: "test"
       EMAIL_ADDRESS: "mymail@myservice.com"
       EMAIL_PASSWORD: "myemailpassword"
       FROM_NAME: "myname"

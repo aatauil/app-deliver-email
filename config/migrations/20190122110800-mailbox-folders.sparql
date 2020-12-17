@@ -2,12 +2,12 @@ INSERT DATA {
   GRAPH <http://mu.semte.ch/graphs/system/email> {
     <http://data.lblod.info/id/mailboxes/1> a <http://www.semanticdesktop.org/ontologies/2007/03/22/nmo#Mailbox>;
        <http://mu.semte.ch/vocabularies/core/uuid> "cf9cb7e4-9a00-4855-9ee0-e8e3bbeba9e9";
-       <https://www.semanticdesktop.org/ontologies/2007/01/19/nie/#hasPart> <http://data.lblod.info/id/mail-folders/1>;
-       <https://www.semanticdesktop.org/ontologies/2007/01/19/nie/#hasPart> <http://data.lblod.info/id/mail-folders/2>;
-       <https://www.semanticdesktop.org/ontologies/2007/01/19/nie/#hasPart> <http://data.lblod.info/id/mail-folders/3>;
-       <https://www.semanticdesktop.org/ontologies/2007/01/19/nie/#hasPart> <http://data.lblod.info/id/mail-folders/4>;
-       <https://www.semanticdesktop.org/ontologies/2007/01/19/nie/#hasPart> <http://data.lblod.info/id/mail-folders/5>;
-       <https://www.semanticdesktop.org/ontologies/2007/01/19/nie/#hasPart> <http://data.lblod.info/id/mail-folders/6>.
+       <http://www.semanticdesktop.org/ontologies/2007/01/19/nie#hasPart> <http://data.lblod.info/id/mail-folders/1>;
+       <http://www.semanticdesktop.org/ontologies/2007/01/19/nie#hasPart> <http://data.lblod.info/id/mail-folders/2>;
+       <http://www.semanticdesktop.org/ontologies/2007/01/19/nie#hasPart> <http://data.lblod.info/id/mail-folders/3>;
+       <http://www.semanticdesktop.org/ontologies/2007/01/19/nie#hasPart> <http://data.lblod.info/id/mail-folders/4>;
+       <http://www.semanticdesktop.org/ontologies/2007/01/19/nie#hasPart> <http://data.lblod.info/id/mail-folders/5>;
+       <http://www.semanticdesktop.org/ontologies/2007/01/19/nie#hasPart> <http://data.lblod.info/id/mail-folders/6>.
 
     <http://data.lblod.info/id/mail-folders/1> a <http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#Folder>;
        <http://mu.semte.ch/vocabularies/core/uuid> "891c67e5-4719-47f8-aec2-d898ba2c09e8";

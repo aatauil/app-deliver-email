@@ -17,7 +17,7 @@ run the following query at ```http://localhost:8890/sparql```
 
 PREFIX nmo: <http://www.semanticdesktop.org/ontologies/2007/03/22/nmo#>
 PREFIX fni: <http://www.semanticdesktop.org/ontologies/2007/03/22/fni#>
-PREFIX nie: <http://www.semanticdesktop.org/ontologies/2007/03/22/nie#>
+PREFIX nie: <http://www.semanticdesktop.org/ontologies/2007/01/19/nie#>
 
 SELECT ?mailfolders
   WHERE {

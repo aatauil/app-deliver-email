@@ -68,7 +68,7 @@ services:
       - "logging=true"
     restart: always
     volumes:
-      - /path/to/local/cloned/deliver-email-service/folder/:/app/
+      - ./data/files:/share
     logging: *default-logging
   database:
     image: semtech/mu-authorization:0.6.0-beta.5
